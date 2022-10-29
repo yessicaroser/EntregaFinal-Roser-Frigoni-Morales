@@ -12,5 +12,5 @@ Entrega intermedia - Participantes
 - Administrador
 
 <b>Modelos</b>:
-- Modelo de Registro_usuarios
+- Modelo de Registro_usuarios (actual nombre "core")
 
