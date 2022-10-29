@@ -1,4 +1,4 @@
-Entrega intermedia - Participantes
+Entrega intermedia - Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 
 
 <h1>Indice</h1>
