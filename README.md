@@ -1,7 +1,7 @@
 Entrega intermedia - Participantes
 
 
-Indice
+<h1>Indice</h1>
 
 Templates:
 - Inicio
