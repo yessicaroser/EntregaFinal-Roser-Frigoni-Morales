@@ -11,7 +11,7 @@ Entrega intermedia - Participantes
 - Perfil
 - Administrador
 
-<b>Modelos</b>
-- Modelos de registro de usuarios- Registro_usuarios
-- Modelos de acceso a contenido general- Blog_general
+<b>Modelos</b>:
+- Modelo de registro de usuarios- Registro_usuarios
+- Modelo de acceso a contenido general- Blog_general
 
