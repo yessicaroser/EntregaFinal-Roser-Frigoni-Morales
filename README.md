@@ -5,6 +5,7 @@ Entrega intermedia - Participantes
 
 <b>Templates</b>:
 - Inicio
+- Blog
 - Login
 - Registro
 - About
