@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from core import views
+from .views import inicio, sobre, servicios, contacto, blog
 
 urlpatterns = [
-    path('', views.home, name="home"),
-    path('about/', views.about, name="about"),
-    path('services/', views.services, name="services"),
-    path('contact/', views.contact, name="contact"),
-    path('blog/', views.blog, name="blog"),
+    path('', inicio),
+    path('about/', sobre, name="sobre"),
+    path('services/', servicios, name="servicios"),
+    path('contact/', contactp, name="contacto"),
+    path('blog/', blog, name="blog"),
     path('admin/', admin.site.urls),
 ]
