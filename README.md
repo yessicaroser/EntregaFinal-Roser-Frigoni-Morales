@@ -3,7 +3,7 @@ Entrega intermedia - Participantes
 
 <h1>Indice</h1>
 
-Templates:
+<b>Templates</b>:
 - Inicio
 - Login
 - Registro
@@ -11,7 +11,7 @@ Templates:
 - Perfil
 - Administrador
 
-Modelos:
+<b>Modelos</b>
 - Modelos de registro de usuarios- Registro_usuarios
 - Modelos de acceso a contenido general- Blog_general
 
