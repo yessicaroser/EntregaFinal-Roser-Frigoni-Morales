@@ -1,0 +1,13 @@
+.navbar-brand1{
+
+    margin-right: 150px;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: var(--bs-body-font-family);
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 1.25rem;
+
+}
+
+

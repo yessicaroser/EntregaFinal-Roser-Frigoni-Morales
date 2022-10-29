@@ -1,12 +1,10 @@
-from http.client import HTTPResponse
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 #Creación de vistas básicas de web
 
 def inicio(request):
-
-    return HttpResponse("Inicio")
     return render(request, "inicio.html")
 
 def sobre(request):
@@ -24,3 +22,16 @@ def contacto(request):
 def blog(request):
     return HttpResponse("Blog")
     return render(request, "blog.html")
+
+def login(request):
+    return render(request, "login.html")
+    return HttpResponse("Login")
+
+def perfil(request):
+    return render(request, "perfil.html")
+    return HttpResponse("Perfil")
+    
+    
+def registro(request):
+    return render(request, "registro.html")
+    return HttpResponse("Registro")

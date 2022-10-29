@@ -1,12 +1,14 @@
-from django.contrib import admin
+
 from django.urls import path
-from .views import inicio, sobre, servicios, contacto, blog
+from .views import inicio, sobre, login, perfil, registro, contacto, blog
 
 urlpatterns = [
     path('', inicio),
-    path('about/', sobre, name="sobre"),
-    path('services/', servicios, name="servicios"),
-    path('contacto/', contacto, name="contacto"),
-    path('blog/', blog, name="blog"),
-    path('admin/', admin.site.urls),
+    path('sobre/', sobre, name="Sobre"),
+    path('login/', login, name="Login"),
+    path('perfil/', perfil, name="Perfil"),
+    path('registro/', registro, name="Registro"),
+    path('contacto/', contacto, name="Contacto"),
+    path('blog/', blog, name="Blog"),
+   
 ]
