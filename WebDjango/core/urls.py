@@ -1,14 +1,15 @@
 
 from django.urls import path
-from .views import inicio, sobre, login, perfil, registro, contacto, blog
+from .views import home, blog, pages, about, login, profile, singup
 
 urlpatterns = [
-    path('', inicio),
-    path('sobre/', sobre, name="Sobre"),
-    path('login/', login, name="Login"),
-    path('perfil/', perfil, name="Perfil"),
-    path('registro/', registro, name="Registro"),
-    path('contacto/', contacto, name="Contacto"),
+    path('', home),
     path('blog/', blog, name="Blog"),
+    path('pages/', pages, name="Páginas"),
+    path('about/', about, name="Acerca de mi"),
+    path('login/', login, name="Login"),
+    path('profile/', profile, name="Perfil"),
+    path('singup/', singup, name="Registrarme"),
+
    
 ]
