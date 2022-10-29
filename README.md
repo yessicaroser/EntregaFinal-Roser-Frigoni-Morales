@@ -13,5 +13,6 @@ Entrega intermedia - Participantes: Gino Frigoni/ Constanza Morales/ Yessica Ros
 - Administrador
 
 <b>Modelos</b>:
-- Modelo de Registro_usuarios (actual nombre "core")
+- Modelo para Publicacion
+- Modelo para Comentarios 
 
