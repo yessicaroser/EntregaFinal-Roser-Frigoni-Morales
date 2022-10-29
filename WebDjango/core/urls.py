@@ -6,7 +6,7 @@ urlpatterns = [
     path('', inicio),
     path('about/', sobre, name="sobre"),
     path('services/', servicios, name="servicios"),
-    path('contact/', contactp, name="contacto"),
+    path('contactpath/', contacto, name="contacto"),
     path('blog/', blog, name="blog"),
     path('admin/', admin.site.urls),
 ]
