@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 #Creación de vistas básicas de web
 
 def home(request):
-    return render(request, "inicio.html")
+    return render(request, "backinicio.html")
 
 def blog(request):
     return HttpResponse("Blog")
