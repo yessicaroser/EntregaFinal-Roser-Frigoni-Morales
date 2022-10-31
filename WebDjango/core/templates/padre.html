@@ -25,10 +25,10 @@
             <div class="container">
                 <a class="navbar-brand1" href="#!">Inicio</a>
                 <a class="navbar-brand" href="{% url 'Blog' %}">Blog</a>
-                <a class="navbar-brand" href="{% url 'Páginas' %}">Páginas</a>
+                {% comment %} <a class="navbar-brand" href="{% url 'Páginas' %}">Páginas</a> {% endcomment %}
                 <a class="navbar-brand" href="{% url 'Acerca de mi' %}">Acerca de mi</a>
-                <a class="navbar-brand" href="{% url 'Registrarme' %}">Registrarme</a>
-                <a class="btn btn-primary" href="#signup">Iniciar</a>
+                {% comment %} <a class="navbar-brand" href="{% url 'Registrarme' %}">Registrarme</a> {% endcomment %}
+                {% comment %} <a class="btn btn-primary" href="#signup">Iniciar</a> {% endcomment %}
             </div>
         </nav>
         <!-- Masthead-->
