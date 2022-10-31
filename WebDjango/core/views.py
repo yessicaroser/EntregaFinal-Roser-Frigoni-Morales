@@ -8,17 +8,20 @@ def home(request):
     return render(request, "inicio.html")
 
 def blog(request):
-    #return HttpResponse("Blog")
     return render(request, "blog.html")
 
-def pages(request):
-    #return HttpResponse("Páginas")
-    return render(request, "pages.html")
+def search_coments(request):
+    return render(request, "search_coments.html")
 
 def about(request):
-    #return HttpResponse("Acerca de mi")
     return render(request, "about.html")
 
+# def pages(request):
+#     #return HttpResponse("Páginas")
+#     return render(request, "pages.html")
+
+
+''' 
 def login(request):
     return HttpResponse("Login")
     return render(request, "login.html")
@@ -30,5 +33,5 @@ def profile(request):
 
 def singup(request):
     return HttpResponse("Registrarme")
-    return render(request, "registro.html")
+    return render(request, "registro.html") '''
 
