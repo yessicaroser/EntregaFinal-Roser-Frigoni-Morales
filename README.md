@@ -6,10 +6,7 @@ Entrega intermedia - Participantes: Gino Frigoni/ Constanza Morales/ Yessica Ros
 <b>Templates</b>:
 - Inicio
 - Blog
-- Login
-- Registro
 - About
-- Perfil
-- Administrador
+- Buscador
 
 
