@@ -8,15 +8,15 @@ def home(request):
     return render(request, "inicio.html")
 
 def blog(request):
-    return HttpResponse("Blog")
+    #return HttpResponse("Blog")
     return render(request, "blog.html")
 
 def pages(request):
-    return HttpResponse("Páginas")
+    #return HttpResponse("Páginas")
     return render(request, "pages.html")
 
 def about(request):
-    return HttpResponse("Acerca de mi")
+    #return HttpResponse("Acerca de mi")
     return render(request, "about.html")
 
 def login(request):
