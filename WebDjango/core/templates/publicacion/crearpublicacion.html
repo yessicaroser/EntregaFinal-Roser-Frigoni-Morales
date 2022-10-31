@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container px-5 my-5">
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <div class="form-floating mb-3">
+                <input class="form-control" id="titulo" type="text" placeholder="Titulo" data-sb-validations="required" />
+                <label for="titulo">Titulo</label>
+                <div class="invalid-feedback" data-sb-feedback="titulo:required">Titulo is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="descripcion" type="text" placeholder="Descripcion" data-sb-validations="required" />
+                <label for="descripcion">Descripcion</label>
+                <div class="invalid-feedback" data-sb-feedback="descripcion:required">Descripcion is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="contenido" type="text" placeholder="Contenido" style="height: 10rem;" data-sb-validations="required"></textarea>
+                <label for="contenido">Contenido</label>
+                <div class="invalid-feedback" data-sb-feedback="contenido:required">Contenido is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="autor" type="text" placeholder="Autor" data-sb-validations="required" />
+                <label for="autor">Autor</label>
+                <div class="invalid-feedback" data-sb-feedback="autor:required">Autor is required.</div>
+            </div>
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    <p>To activate this form, sign up at</p>
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+            </div>
+            <div class="d-none" id="submitErrorMessage">
+                <div class="text-center text-danger mb-3">Error sending message!</div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
