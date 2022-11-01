@@ -12,15 +12,15 @@ urlpatterns = [
     path('singup/', views.singup, name="Registrarme"),
 
     # URL para el modelo Categoria
+    path('listarcategoria/', views.CategoriaList.as_view(), name="listarcategoria"),
     path('crearcategoria/', views.CategoriaCreate.as_view(), name="crearcategoria"),
+    path('detallecategoria/<int:pk>', views.CategoriaDetail.as_view(), name="detallecategoria"),
     path('editarcategoria/<int:pk>', views.CategoriaUpdate.as_view(), name="editarcategoria"),
     path('eliminarcategoria/<int:pk>', views.CategoriaDelete.as_view(), name="eliminarcategoria"),
-    path('listarcategoria/', views.CategoriaList.as_view(), name="listarcategoria"),
-    path('detallecategoria/<int:pk>', views.CategoriaDetail.as_view(), name="detallecategoria"),
 
     # URL para el modelo Publicacion
-    path('crearpublicacion/', views.singup, name="crearpublicacion"),
-    path('editarpublicacion/<int:id>', views.singup, name="editarpublicacion"),
-    path('eliminarpublicacion/<int:id>', views.singup, name="eliminarpublicacion"),
-    path('listarpublicacion/', views.singup, name="listarpublicacion"),
+    path('listarpublicacion/', views.listarpublicacion, name="listarpublicacion"),
+    path('crearpublicacion/', views.crearpublicacion, name="crearpublicacion"),
+    path('editarpublicacion/<int:id>', views.editarpublicacion, name="editarpublicacion"),
+    path('eliminarpublicacion/<int:id>', views.eliminarpublicacion, name="eliminarpublicacion"),
 ]

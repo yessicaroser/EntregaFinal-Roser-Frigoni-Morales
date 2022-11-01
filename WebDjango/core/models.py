@@ -11,9 +11,10 @@ class Categoria(models.Model):
 class Publicacion(models.Model):
 
     titulo = models.CharField(max_length=200)
-    Descripcion = models.CharField(max_length=200)
-    Contenido = models.TextField()
+    descripcion = models.CharField(max_length=200)
+    contenido = models.CharField(max_length=200)
     fecha_publicacion = models.DateField()
+    hashtag = models.CharField(max_length=200)
     autor = models.CharField(max_length=200)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
