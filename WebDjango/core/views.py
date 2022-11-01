@@ -67,6 +67,8 @@ class CategoriaCreate(CreateView):
     fields = ["nombre", "descripcion"]
     success_url = '/core/listarcategoria/'
 
+#dfdf
+
 class CategoriaUpdate(UpdateView):
 
     model = Categoria
