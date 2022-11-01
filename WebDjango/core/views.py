@@ -32,3 +32,4 @@ def singup(request):
     return HttpResponse("Registrarme")
     return render(request, "registro.html")
 
+#prueba
