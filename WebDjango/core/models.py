@@ -16,7 +16,7 @@ class Publicacion(models.Model):
     fecha_publicacion = models.DateField()
     hashtag = models.DateField()
     autor = models.CharField(max_length=200)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return self.titulo
