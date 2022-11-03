@@ -1,22 +1,32 @@
 from django.db import models
 
 # Create your models here.
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=200)
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
 
     def __str__(self) -> str:
-        return self.nombre
-
-class Publicacion(models.Model):
-
-    titulo = models.CharField(max_length=200)
-    Descripcion = models.CharField(max_length=200)
-    Contenido = models.TextField()
-    fecha_publicacion = models.DateField()
-    hashtag = models.DateField()
-    autor = models.CharField(max_length=200)
-    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
+        return self.name
+    
+class User(models.Model):
+    name = models.CharField(max_length=25)
+    surname = models.CharField(max_length=25)
+    mail = models.CharField(max_length=70)
+    user = models.CharField(max_length=20)
+    password = models.CharField(max_length=15)
 
     def __str__(self) -> str:
         return self.titulo
+    
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    create_at = models.DateTimeField(auto_created=True)
+
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    def __str__(self) -> str:
+        return self.titulo
+    

@@ -7,11 +7,11 @@ from django.http import HttpResponseRedirect
 def home(request):
     return render(request, "inicio.html")
 
+def formulario(request):
+    return render(request, "formulario.html")
+
 def blog(request):
     return render(request, "blog.html")
-
-def search_coments(request):
-    return render(request, "search_coments.html")
 
 def about(request):
     return render(request, "about.html")
