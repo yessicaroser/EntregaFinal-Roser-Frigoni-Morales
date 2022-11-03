@@ -3,19 +3,30 @@
 {% load static %}
 
 {% block content %}
-        
 
-{% for post in posts %}
-<article>
-    <div class="container-article">
-        <img src="{{ post.user.profile.image.url }}">
-        <div>
-            <h5 class="username"><a href="{% url 'profile' %}">@{{ post.user.username }}</a></h5>
-            <i class="clock"></i>
-            <div class="post">{{ post.content }}</div>
+
+
+<div class="container">
+    <h3>Publicaciones</h3>
+    {% for post in posts %}
+
+
+    <div class="card">
+        <div class="card-header">
+            <a href="{% url 'profile' %}">@{{ post.user.username }}</a>
         </div>
+        <div class="card-body">
+            <span class="card-text">{{ post.content }}</span>
+            <span class="badge badge-info ml-3">{{ post.categories   }}</span>
+
+        </div>
+
+
+
     </div>
-</article>
-{% endfor %}
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}

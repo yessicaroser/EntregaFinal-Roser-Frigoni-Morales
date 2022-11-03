@@ -26,3 +26,5 @@ class PostForm(forms.ModelForm):
 		fields = ['content', 'categories']
 
 
+
+

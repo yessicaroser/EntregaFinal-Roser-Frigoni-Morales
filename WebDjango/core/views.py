@@ -15,6 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     posts = Post.objects.all()
+
     context = { 'posts': posts}
     return render(request, 'home.html', context)
 
@@ -63,5 +64,6 @@ def profile(request, username=None):
 		posts = current_user.posts.all()
 		user = current_user
 	return render(request, 'profile.html', {'user':user, 'posts':posts})
+
 
 

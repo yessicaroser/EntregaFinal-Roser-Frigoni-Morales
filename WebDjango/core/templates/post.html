@@ -2,14 +2,19 @@
 
 {% block content %}
 
+<div class="container">
+    <h3>Nuevo Formulario</h3>
+    <div class="mx-auto mt-3" style="width: 200px;">
 
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-    
-	<button type="submit" class="post" id="" >Post!</button>
-	
-</form>
-
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary" class="post">Enviar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
 
 {% endblock %}
