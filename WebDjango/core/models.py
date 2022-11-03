@@ -2,21 +2,36 @@ from django.db import models
 from datetime import datetime
 
 
+# Create your models here.
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=200)
+
+    def __str__(self) -> str:
+        return self.nombre
+
+class Publicacion(models.Model):
+
+    titulo = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=200)
+    contenido = models.CharField(max_length=200)
+    fecha_publicacion = models.DateField()
+    hashtag = models.CharField(max_length=200)
+    autor = models.CharField(max_length=200)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.titulo
+
+
 class Comentario(models.Model):
     # Campos
-    nombre_usuario = models.CharField(max_length=50)
-    fecha_comentario = models.DateField(default = None)
-    ingreso_comentario = models.TextField(max_length=2000, help_text="Puedes ingresar un comentario hasta 2000 caracteres")
+    users = models.CharField(max_length=50)
+    publicacion_comentario = models.ForeignKey(Publicacion, on_delete=models.CASCADE)
+    fecha_comentario = models.DateField()
+    ingreso_comentario = models.CharField(max_length=200)
 
     # Métodos
-    def __str__(self):
-        return f'{self.nombre_usuario} - {self.fecha_comentario} - {self.ingreso_comentario}'
+    def __str__(self): 
+        return f'{self.users} - {self.fecha_comentario} - {self.publicacion_comentario} - {self.ingreso_comentario}'
 
-class Categoria(models.Model):
-    # Campos
-    nombre_categoria = models.CharField(max_length=50)
-    descripcion_categoria = models.CharField(max_length=100)
-
-    # Métodos
-    def __str__(self):
-        return f'{self.nombre_categoria} - {self.descripcion_categoria}'
