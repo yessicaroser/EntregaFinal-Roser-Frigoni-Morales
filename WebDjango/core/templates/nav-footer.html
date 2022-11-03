@@ -35,39 +35,24 @@
                     <a class="nav-link" href="{% url 'home' %}">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Formulario' %}">Formulario</a>
-                        </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{% url 'Blog' %}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{% url 'Acerca de mi' %}">Acerca de mi</a>
+                    <a class="nav-link" href="{% url 'Acerca de mi' %}">Acerca</a>
                     </li>
                 
                 </ul>
 
-                <div class="my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </div>
+                <ul class="nav navbar-nav navbar-nav ml-auto">
+
+                    {% if request.user.is_authenticated %}
+                        <li  class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li  class="nav-item"><a  class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li  class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+        
+                </ul>
             </div>
         </nav>
 
-        <header class="main-head">
-            <nav class="main">
-                <h1 id="logo">Hola</h1>
-                <ul>
-                    {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    {% endif %}
-                    
-                    
-                </ul>
-            </nav>
-        </header>
 
         
         
