@@ -14,27 +14,13 @@ from django.contrib.auth.forms import UserCreationForm
 #Creación de vistas básicas de web
 
 def home(request):
-    return render(request, "inicio.html")
+    posts = Post.objects.all()
+    context = { 'posts': posts}
+    return render(request, 'home.html', context)
+
 
 def about(request):
     return render(request, "about.html")
-
-
-
-
-def some_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST, request.FILES)
-        form2 = ProfileForm(request.POST, request.FILES)
-        if form.is_valid() and form2.is_valid():
-            user = form.save()
-            form2.instance.user = user
-            form2.save()
-            return redirect('name-of-some-other-view')
-    else:
-        form = UserCreationForm()
-        form2 = ProfileForm()
-    return render(request, 'name-of-some-template.html', {'form': form, 'form2': form2})
 
 
 def register(request):
@@ -44,7 +30,7 @@ def register(request):
             form.save()
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
-            return redirect('feed')
+            return redirect('home')
     else:
         form = UserRegisterForm()
     context = { 'form' : form }
@@ -60,10 +46,11 @@ def post(request):
 			post.user = current_user
 			post.save()
 			messages.success(request, 'Post enviado')
-			return redirect('feed')
+			return redirect('home')
 	else:
 		form = PostForm()
 	return render(request, 'post.html', {'form' : form })
+
 
 
 
@@ -76,3 +63,5 @@ def profile(request, username=None):
 		posts = current_user.posts.all()
 		user = current_user
 	return render(request, 'profile.html', {'user':user, 'posts':posts})
+
+

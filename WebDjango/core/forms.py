@@ -4,11 +4,18 @@ from django.contrib.auth.models import User
 from .models import *
 
 
-
-class ProfileForm(forms.ModelForm):
+class UserRegisterForm(UserCreationForm):
+    name = models.CharField(max_length = 200)
+    email = forms.EmailField()
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirma Contraseña', widget=forms.PasswordInput)
+    
     class Meta:
-        model = Profile
-        fields = ['image']
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        help_texts = {k:"" for k in fields }
+
+
         
 
 class PostForm(forms.ModelForm):
@@ -16,4 +23,6 @@ class PostForm(forms.ModelForm):
 
 	class Meta:
 		model = Post
-		fields = ['content']
+		fields = ['content', 'categories']
+
+

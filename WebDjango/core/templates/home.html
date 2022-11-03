@@ -1,0 +1,21 @@
+{% extends 'nav-footer.html' %}
+
+{% load static %}
+
+{% block content %}
+        
+
+{% for post in posts %}
+<article>
+    <div class="container-article">
+        <img src="{{ post.user.profile.image.url }}">
+        <div>
+            <h5 class="username"><a href="{% url 'profile' %}">@{{ post.user.username }}</a></h5>
+            <i class="clock"></i>
+            <div class="post">{{ post.content }}</div>
+        </div>
+    </div>
+</article>
+{% endfor %}
+
+{% endblock %}
