@@ -1,28 +1,24 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from datetime import datetime
+from django.shortcuts import render, redirect, get_object_or_404
 
-# Importaciones relacionadas con "forms"
+
+# Importaciones de formularios y modelos
+from .forms import PostForm, PublicacionFormulario, Post, UserRegisterForm
+from .models import Comentario, Categoria, Publicacion
+
+# Importaciones relacionadas de vistas
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
-# Importaciones de formulario y modelo de categoria
-from .forms import CategoriaFormulario, PublicacionFormulario
-from .models import Categoria, Publicacion
-
-
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import *
-from .forms import *
+# Importaciones relacionadas de objetos varios
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserCreationForm
 
 #Creación de vistas básicas de web
-
 def home(request):
     posts = Post.objects.all()
     context = { 'posts': posts}
@@ -32,13 +28,11 @@ def formulario(request):
     return render(request, "formulario.html")
 
 def blog(request):
-    return HttpResponse("Blog")
+    #return HttpResponse("Blog")
     return render(request, "blog.html")
-
 
 def about(request):
     return render(request, "about.html")
-
 
 def register(request):
     if request.method == 'POST':
@@ -68,9 +62,6 @@ def post(request):
 		form = PostForm()
 	return render(request, 'post.html', {'form' : form })
 
-
-
-
 def profile(request, username=None):
 	current_user = request.user
 	if username and username != current_user.username:
@@ -81,8 +72,16 @@ def profile(request, username=None):
 		user = current_user
 	return render(request, 'profile.html', {'user':user, 'posts':posts})
 
+def pages(request):
+    #return HttpResponse("Páginas")
+    return render(request, "pages.html")
+
+def login(request):
+    #return HttpResponse("Login")
+    return render(request, "login.html")
+
 def singup(request):
-    return HttpResponse("Registrarme")
+    #return HttpResponse("Registrarme")
     return render(request, "registro.html")
 
 #-----------------#
@@ -210,3 +209,39 @@ def eliminarpublicacion(request, id):
 
         publicaciones = Publicacion.objects.all()
         return render(request, "publicacion/listarpublicacion.html", {"publicaciones": publicaciones})  
+
+#-------------------#
+# >> Comentarios << #
+#-------------------#
+
+
+class ComentarioList(ListView):
+
+    model = Comentario
+    template_name = 'comentario/listarcomentario.html'
+    context_object_name = "comentario"
+
+class ComentarioDetail(DetailView):
+
+    model = Comentario
+    template_name = 'comentario/detallecomentario.html'
+    context_object_name = "comentario"
+
+class ComentarioCreate(CreateView):
+
+    model = Comentario
+    template_name = 'comentario/crearcomentario.html'
+    fields = ["nombre", "descripcion"]
+    success_url = '/core/listarcomentario/'
+
+class ComentarioUpdate(UpdateView):
+
+    model = Comentario = 'comentario/editarcomentario.html'
+    fields = ["nombre", "descripcion"]
+    success_url = '/core/listarcomentario/'
+
+class ComentarioDelete(DeleteView):
+
+    model = Comentario
+    template_name = 'comentario/eliminarcomentario.html'
+    success_url = '/core/listarcomentario/'

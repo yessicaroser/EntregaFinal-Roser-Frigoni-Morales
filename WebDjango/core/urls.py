@@ -1,22 +1,18 @@
 
 from django.urls import path
 from . import views
-from django.conf import settings
+#from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('', views.home, name='home'),
-
     path('post/', views.post, name='post'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
-
-    path('', views.home),
     path('blog/', views.blog, name="Blog"),
     path('pages/', views.pages, name="Páginas"),
     path('about/', views.about, name="Acerca de mi"),
-
     path('profile/', views.profile, name="Perfil"),
     path('singup/', views.singup, name="Registrarme"),
 
@@ -32,4 +28,12 @@ urlpatterns = [
     path('crearpublicacion/', views.crearpublicacion, name="crearpublicacion"),
     path('editarpublicacion/<int:id>', views.editarpublicacion, name="editarpublicacion"),
     path('eliminarpublicacion/<int:id>', views.eliminarpublicacion, name="eliminarpublicacion"),
+
+    # URL para el modelo Comentario
+    path('listarcomentario/', views.ComentarioList.as_view(), name="listarcomentario"),
+    path('crearcomentario/', views.ComentarioCreate.as_view(), name="crearcomentario"),
+    path('detallecomentario/<int:pk>', views.ComentarioDetail.as_view(), name="detallecomentario"),
+    path('editarcomentario/<int:pk>', views.ComentarioUpdate.as_view(), name="editarcomentario"),
+    path('eliminarcomentario/<int:pk>', views.ComentarioDelete.as_view(), name="eliminarcomentario"),
+
 ]

@@ -21,7 +21,6 @@ class PostForm(forms.ModelForm):
 		model = Post
 		fields = ['content', 'categories']
 
-
 class CategoriaFormulario(forms.Form):
     nombre = forms.CharField(max_length=200)
     descripcion = forms.CharField(max_length=200)
@@ -34,3 +33,9 @@ class PublicacionFormulario(forms.Form):
     hashtag = forms.CharField(max_length=200)
     autor = forms.CharField(max_length=200)
     categoria = forms.ModelMultipleChoiceField(queryset=Categoria.objects.all())
+
+class ComentarioFormulario(forms.Form):
+    # Campos
+    user = forms.CharField(max_length=50)
+    ingreso_comentario = forms.CharField(max_length=200)
+

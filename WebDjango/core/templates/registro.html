@@ -1,25 +1,9 @@
-<<<<<<< HEAD
-{% extends 'nav-footer.html' %}
-
-{% block content %}
-
-<form class="form" method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-
-	<button type="submit" id="submit">Login</button>
-</form>
-
-{% endblock %}
-=======
 {% extends 'padre.html' %}
 
 
 {% load static %}
 
 
-
-        
 {% block contenidoQueCambia %}
         
 </nav>
@@ -30,22 +14,12 @@
             <div class="col-xl-6">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Login</h1>
+                    <h1 class="mb-5">Registro</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<form action="{% url 'login' %}" method="POST">{% csrf_token %}
-
-    {{form.as_p}}
-
-
-</form>
-
-
-
 
 {% endblock contenidoQueCambia %}
->>>>>>> yessica
