@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block contenidoQueCambia %}
+
+    <h1>Lista de categorias</h1>
+
+    <ul>
+        
+        {% for categoria in categorias %}
+            <li>
+                <a href="{% url 'detallecategoria' categoria.id %}">
+                    {{categoria}}
+                </a>
+            </li>
+            <div>
+                <button>
+                    <a href="{% url 'eliminarcategoria' categoria.id %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'editarcategoria' categoria.id %}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}
+</body>
+</html>

@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Post, Profile
+from . import models
 
-# Register your models here.
-admin.site.register(Profile)
-admin.site.register(Post)
+admin.site.register(models.Profile)
+admin.site.register(models.Post)
+admin.site.register(models.Categoria)
+admin.site.register(models.Publicacion)
