@@ -18,21 +18,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.forms import UserCreationForm
 
-#Creación de vistas básicas de web
+# Creación de vistas Cmorales
 def home(request):
     posts = Post.objects.all()
     context = { 'posts': posts}
-    return render(request, 'home.html', context)
-
-def formulario(request):
-    return render(request, "formulario.html")
-
-def blog(request):
-    #return HttpResponse("Blog")
-    return render(request, "blog.html")
+    return render(request, 'cmorales/home.html', context)
 
 def about(request):
-    return render(request, "about.html")
+    return render(request, "cmorales/about.html")
 
 def register(request):
     if request.method == 'POST':
@@ -45,7 +38,10 @@ def register(request):
     else:
         form = UserRegisterForm()
     context = { 'form' : form }
-    return render(request, 'register.html', context)
+    return render(request, 'cmorales/register.html', context)
+
+def formulario(request):
+    return render(request, "formulario.html")
 
 @login_required
 def post(request):
@@ -60,7 +56,7 @@ def post(request):
 			return redirect('home')
 	else:
 		form = PostForm()
-	return render(request, 'post.html', {'form' : form })
+	return render(request, 'cmorales/post.html', {'form' : form })
 
 def profile(request, username=None):
 	current_user = request.user
@@ -70,19 +66,25 @@ def profile(request, username=None):
 	else:
 		posts = current_user.posts.all()
 		user = current_user
-	return render(request, 'profile.html', {'user':user, 'posts':posts})
+	return render(request, 'cmorales/profile.html', {'user':user, 'posts':posts})
+
+# Creación de vistas Originales
+
+def blog(request):
+    #return HttpResponse("Blog")
+    return render(request, "/originales/blog.html")
 
 def pages(request):
     #return HttpResponse("Páginas")
-    return render(request, "pages.html")
+    return render(request, "/originales/pages.html")
 
 def login(request):
     #return HttpResponse("Login")
-    return render(request, "login.html")
+    return render(request, "/originales/login.html")
 
 def singup(request):
     #return HttpResponse("Registrarme")
-    return render(request, "registro.html")
+    return render(request, "/originales/registro.html")
 
 #-----------------#
 # >> Categoria << #
@@ -219,7 +221,7 @@ class ComentarioList(ListView):
 
     model = Comentario
     template_name = 'comentario/listarcomentario.html'
-    context_object_name = "comentario"
+    context_object_name = "comentarios"
 
 class ComentarioDetail(DetailView):
 
@@ -231,15 +233,15 @@ class ComentarioCreate(CreateView):
 
     model = Comentario
     template_name = 'comentario/crearcomentario.html'
-    fields = ["nombre", "descripcion"]
+    fields = ["users", "publicacion_comentario", "ingreso_comentario"]
     success_url = '/core/listarcomentario/'
 
 class ComentarioUpdate(UpdateView):
 
-    model = Comentario = 'comentario/editarcomentario.html'
-    fields = ["nombre", "descripcion"]
+    model = Comentario 
+    fields = ["users", "publicacion_comentario", "ingreso_comentario"]
     success_url = '/core/listarcomentario/'
-
+    
 class ComentarioDelete(DeleteView):
 
     model = Comentario

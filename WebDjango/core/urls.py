@@ -6,13 +6,22 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+
     path('', views.home, name='home'),
+    
+    # Vistas de Cmorales
+    path('profile/', views.profile, name='profile'),
+    path('about/', views.about, name="Acerca de mi"),
+    path('register/', views.register, name='register'),
     path('post/', views.post, name='post'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('login/', LoginView.as_view(template_name='cmorales/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='cmorales/logout.html'), name='logout'),
+
+    # Vistas Originales
     path('blog/', views.blog, name="Blog"),
     path('pages/', views.pages, name="Páginas"),
     path('about/', views.about, name="Acerca de mi"),
+    path('login/', views.login, name="Login"),
     path('profile/', views.profile, name="Perfil"),
     path('singup/', views.singup, name="Registrarme"),
 

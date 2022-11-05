@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crear comentario</title>
-</head>
-<body>
-    {% block contenidoQueCambia %}
-        
+{% extends '../cmorales/nav-footer.html' %}
+
+{% block content %}
+<h1>Crear Comentario</h1>
+<hr>        
     <form action="{% url 'crearcomentario' %}" method="POST">{% csrf_token %}
 
         {{form.as_p}}
@@ -18,7 +12,4 @@
     </form>
 
 
-    
-{% endblock contenidoQueCambia %}
-</body>
-</html>
+    {% endblock %}

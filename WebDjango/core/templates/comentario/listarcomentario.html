@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listar comentario</title>
-</head>
-<body>
-    {% block contenidoQueCambia %}
+{% extends '../cmorales/nav-footer.html' %}
+
+{% block content %}
+
+    <h1>Lista de Comentarios</h1>c
+    <hr>
+    <ul>
+        <li><a href="{% url 'crearcomentario' %}">Crear Comentario</a></li>
+    </ul>
+<hr>
+    <ul>
         
-    <form action="{% url 'listarcomentario' %}" method="POST">{% csrf_token %}
+        {% for comentario in comentarios %}
+            <li>
+                <a href="{% url 'detallecomentario' comentario.id %}">
+                    {{comentario}}
+                </a>
+            </li>
+            <div>
+                <button>
+                    <a href="{% url 'eliminarcomentario' comentario.id %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'editarcomentario' comentario.id %}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
 
-        {{form.as_p}}
-
-        
-
-    </form>
-
-{% endblock contenidoQueCambia %}
-</body>
-</html>
+    {% endblock %}

@@ -52,10 +52,10 @@ class Comentario(models.Model):
     # Campos
     users = models.CharField(max_length=50)
     publicacion_comentario = models.ForeignKey(Publicacion, on_delete=models.CASCADE)
-    fecha_comentario = models.DateField()
+    fecha_comentario = models.DateTimeField(auto_now_add=True, editable=False, null=False, blank=False)
     ingreso_comentario = models.CharField(max_length=200)
 
     # Métodos
     def __str__(self): 
-        return f'{self.users} - {self.fecha_comentario} - {self.publicacion_comentario} - {self.ingreso_comentario}'
+        return f'{self.users} - {self.ingreso_comentario}'
 

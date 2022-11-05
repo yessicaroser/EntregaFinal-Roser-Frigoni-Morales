@@ -1,4 +1,4 @@
-{% extends 'nav-footer.html' %}
+{% extends 'cmorales/nav-footer.html' %}
 
 {% block content %}
 
@@ -9,6 +9,7 @@
     {% csrf_token %}
 	{{ form.as_p }} 
     <div class="container">
+    <!--
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="fist_name">Nombre:</label>
@@ -36,6 +37,7 @@
                 <input type="text" class="form-control" id="password2">
             </div>
         </div>
+        -->
         <button type="submit" class="btn btn-primary" id="submit">Registrate</button>
     </div>
 
