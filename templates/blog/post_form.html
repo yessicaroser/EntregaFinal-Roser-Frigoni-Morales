@@ -1,11 +1,29 @@
 {% extends "blog/base.html" %}
-<!DOCTYPE html>
+
+{% block title %}Crea una nueva publicación{% endblock title %}
+
 {% block content %}
-    <h1>New Post</h1>
-    <form class="post-form" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-    <script> let editor = new MediumEditor('.editable');</script>
+
+    {% if user.is_authenticated %}
+            <h1>Nueva publicación</h1>
+            <br/><br/>
+            
+            <div class="=form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+            <script> 
+                var name ="{{ user_id }}";
+                document.getElementById("elder").value = name;
+            </script>
+            
+    {% endif %}
+
 {% endblock %}
+
+
+
