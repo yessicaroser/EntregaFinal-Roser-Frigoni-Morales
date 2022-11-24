@@ -2,18 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Post, Comment
 from blog.forms import PostForm, CommentForm
 from django.urls import reverse_lazy
-from . import forms
+#from . import forms
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView, DetailView, DeleteView, CreateView, UpdateView)
 
-
-# Create your views here.
-class SignUp(CreateView):
-    form_class = forms.UserCreateForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
 
 
 class AboutView(TemplateView):
