@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Editar Perfil{% endblock title %}
+    
+{% block content %}
+
+    <h1>Editar Perfil</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Guardar cambios</button>
+    
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Post, Comment
 from blog.forms import PostForm, CommentForm
 from django.urls import reverse_lazy
-#from . import forms
+from . import forms
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -18,7 +18,7 @@ class PostListView(ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        return Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('-fecha_publicacion')
 
 
 class PostDetailView(DetailView):
@@ -46,7 +46,7 @@ class DraftListView(LoginRequiredMixin, ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+        return Post.objects.filter(fecha_publicacion__isnull=True).order_by('fecha_creacion')
 
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):

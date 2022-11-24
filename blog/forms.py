@@ -6,20 +6,22 @@ from django.contrib.auth import get_user_model
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('author', 'title', 'text',)
+        fields = ('autor', 'titulo', 'contenido',)
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'textinputclass'}),
-            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'}),
+            'titulo': forms.TextInput(attrs={'class': 'textinputclass'}),
+            'contenido': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'}),
         }
+
+
 
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('author', 'text',)
+        fields = ('autor', 'comentario',)
 
         widgets = {
-            'author': forms.TextInput(attrs={'class': 'textinputclass'}),
-            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'}),
+            'autor': forms.TextInput(attrs={'class': 'textinputclass'}),
+            'comentario': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'}),
         }
