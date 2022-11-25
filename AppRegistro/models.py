@@ -1,8 +1,8 @@
-from django.db import models
-from django.utils import timezone
-from django.urls import reverse
+#from django.db import models
+#from django.utils import timezone
+#from django.urls import reverse
 from django.contrib import auth
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 
 class Users(auth.models.User, auth.models.PermissionsMixin):
