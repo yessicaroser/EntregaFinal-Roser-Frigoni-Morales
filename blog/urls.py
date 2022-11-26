@@ -10,6 +10,7 @@ urlpatterns = [
     #path('login/', auth_views.LoginView.as_view(template_name='registration/login.html')),
     #path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     #path('signup/', views.SignUp.as_view(), name='signup'),
+    path('home/', views.HomeView.as_view(), name='home'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('post/<pk>', views.PostDetailView.as_view(), name='post_detail'),
     path('post/new/', views.CreatePostView.as_view(), name='post_new'),

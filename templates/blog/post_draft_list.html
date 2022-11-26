@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-<!DOCTYPE html>
+
 {% block content %}
     {% for post in post_list %}
         <div class="post">
@@ -8,4 +8,5 @@
             <p>{{ post.text|safe|linebreaksbr }}</p>
         </div>
     {% endfor %}
+    
 {% endblock %}

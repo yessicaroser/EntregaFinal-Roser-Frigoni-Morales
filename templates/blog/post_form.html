@@ -1,29 +1,44 @@
 {% extends "blog/base.html" %}
-
-{% block title %}Crea una nueva publicación{% endblock title %}
-
+{% load static %}
 {% block content %}
 
-    {% if user.is_authenticated %}
-            <h1>Nueva publicación</h1>
-            <br/><br/>
-            
-            <div class="=form-group">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.media }}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Save</button>
-            </div>
 
-            <script> 
-                var name ="{{ user_id }}";
-                document.getElementById("elder").value = name;
-            </script>
+    {% if user.is_authenticated %}
+        <!-- Page Header-->
+            <header class="masthead" style="background-image: url({% static 'assets/img/notebook.jpg' %})">
+                <div class="container position-relative px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="page-heading">
+                                <h1>Nuevo artículo</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <br>
+            <body class="bg-primary">
+                <div id="layoutAuthentication">
+                    <div id="layoutAuthentication_content">
+                        <main>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                            <div class="card-body">
+
+                                            <div class="=form-group">
+                                                <form method="POST" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    {{ form.media }}
+                                                    {{ form.as_p }}
+                                                    <button type="submit" class="btn btn-primary">Publicar</button>
+                                            </div>
+
             
     {% endif %}
 
-{% endblock %}
+{% endblock content %}
 
 
 

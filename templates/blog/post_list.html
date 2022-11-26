@@ -1,16 +1,33 @@
 {% extends "blog/base.html" %}
-<!DOCTYPE html>
+{% load static %}
 {% block content %}
-    <div class="centerstage">
-        {% for post in  post_list %}
-            <div class="post">
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }} {{ post.image }}</a></h1>
-                <div class="date">
-                    <p>Publicado el {{ post.fecha_publicacion|date:"D M Y" }}</p>
-                
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'assets/img/chica_notebook.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Publicaciones</h1>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
-        {% endfor %}
-    </div>
-{% endblock %}
+        </header>
+
+
+
+        <div class="centerstage">
+            {% for post in  post_list %}
+                <div class="post">
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }} {{ post.image }}</a></h1>
+                    <div class="date">
+                        <p>Publicado el {{ post.fecha_publicacion|date:"D M Y" }}</p>
+                    
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from . import forms
-from django.views.generic import (CreateView, UpdateView)
+from django.views.generic import (CreateView, UpdateView, TemplateView)
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -28,3 +28,7 @@ class PasswordsChangeView(PasswordChangeView):
 
 def password_success(request):
     return render(request, 'profiles/password_success.html', {})
+
+
+class ProfileView(TemplateView):
+    template_name = 'blog/profile.html'
