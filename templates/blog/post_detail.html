@@ -3,12 +3,12 @@
 
 {% block content %}
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+        <header class="masthead" style="background-image: url({% static 'assets/img/escritura.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Conociendo Argentina</h1>
+                            <h1>Artículos</h1>
                             <span class="subheading"></span>
                         </div>
                     </div>
@@ -17,33 +17,37 @@
         </header>
         <br/>  
         
-            <h1 class='posttitle loader'>{{ post.titulo }}</h1>
-            <small>Por:
-                {{ post.autor.username }}
-                {{ post.autor.date }}
-
-            {% if post.fecha_publicacion %}
-                <div class="date postdate">
-                    {{ post.fecha_publicacion }}
-                </div>
-            {% else %}
-                <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-            {% endif %}
-            <br/> 
-            <img src=" {{ post.imagen_portada.url }}",  width="640" height="425"> <br/> <br/>  
-            <p class='postcontent'>{{ post.contenido|safe|linebreaksbr }}</p>
-            {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen"></i></a>     
-                    </p>
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="centerstage">
+                            <h1 class='posttitle loader'>{{ post.titulo }}</h1>
+                                <small>Por:
+                                    {{ post.autor.username }}
+                                    {{ post.autor.date }}
                     
+                                {% if post.fecha_publicacion %}
+                                    <div class="date postdate">
+                                        {{ post.fecha_publicacion }}
+                                    </div>
+                                {% else %}
+                                    <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                                {% endif %}
+                                    <br/> 
+                                    <img src=" {{ post.imagen_portada.url }}",  width="640" height="425"> <br/> <br/>  
+                                    <p class='postcontent'>{{ post.contenido|safe|linebreaksbr }}</p>
+                                    {% if user.is_authenticated %}
+                                        <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen"></i></a>  
+                                    {% endif %}  
+                        </div>   
+                        <br/><br/>
+                        <img src="{{ post.autor.profile.profile_picture.url }}" class="rounded-circle", width="80" height="80">
+                        <br/><br/> 
                     </div>
-                </div>
+                    
                 </div>
             </div>
-            {% endif %}
-
-        <br/><br/>
-        <img src="{{ post.autor.profile.profile_picture.url }}" class="rounded-circle", width="80" height="80">
-        <br/><br/>
+        
 
 {% endblock content %}

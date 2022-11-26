@@ -8,26 +8,51 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Publicaciones</h1>
+                            <h1>Blog</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-
-
-        <div class="centerstage">
-            {% for post in  post_list %}
-                <div class="post">
-                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }} {{ post.image }}</a></h1>
-                    <div class="date">
-                        <p>Publicado el {{ post.fecha_publicacion|date:"D M Y" }}</p>
-                    
+       <!--- <div class="site-secton">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-6 mb-lg-6">
+                        <div class=""section-heading mb-5-d-flex align-items-center">
+                            <h2>{{ post.titulo | upper }}</h2>
+                            <div class="ml-auto"><a href="" class="view-all-btn"></a></div>
+                        </div>
+                        <div class="entry2 mb-5">
+                            <a href=""><img src="{{ post.image }}" alt="image" class="img-fluid rounded"></a>
+                            <h2><a href=""></a></h2>
+                            <div class="post-meta align-items-center text-left clearfix"></div>
+                                <figure class="author-figure mb-0 mr-3 float-left"><img src="images/profile/jellyfish.jpg" alt="image" class="img-fluid"></figure>
+                                <span class="d-inline-block mt-1">Por <a href="#">Autor</a></span>
+                                <span>Fecha</span>        
+                            </div>
                     </div>
-                    
+                </div
+            </div
+        </div>--->
+
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="centerstage">
+                            {% for post in  post_list %}
+                                <div class="post">
+                                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }} {{ post.image }}</a></h1>
+                                    <div class="date">
+                                    <p>Publicado el {{ post.fecha_publicacion|date:"D M Y" }}</p>
+                                </div>
+                            {% endfor %}   
+                        </div>
+                    </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+
+        
 
 {% endblock content %}
