@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-        <!-- Page Header-->
+
+    <!-- Page Header-->
         <header class="masthead" style="background-image: url({% static 'assets/img/escritura.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -16,38 +17,51 @@
             </div>
         </header>
         <br/>  
+    
         
-        <main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="centerstage">
-                            <h1 class='posttitle loader'>{{ post.titulo }}</h1>
-                                <small>Por:
-                                    {{ post.autor.username }}
-                                    {{ post.autor.date }}
+    <!-- Container Post-->
+    <main role= "main" class="container">
+        <div class="Row">
+            <div class="col-md-8 blog-main">
+                <h1 class='posttitle loader'>{{ post.titulo }}</h1>
+                    <small>Por:
+                        {{ post.autor.username }}
+                        {{ post.autor.fecha }}
                     
-                                {% if post.fecha_publicacion %}
-                                    <div class="date postdate">
-                                        {{ post.fecha_publicacion }}
-                                    </div>
-                                {% else %}
-                                    <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-                                {% endif %}
-                                    <br/> 
-                                    <img src=" {{ post.imagen_portada.url }}",  width="640" height="425"> <br/> <br/>  
-                                    <p class='postcontent'>{{ post.contenido|safe|linebreaksbr }}</p>
-                                    {% if user.is_authenticated %}
-                                        <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen"></i></a>  
-                                    {% endif %}  
-                        </div>   
-                        <br/><br/>
-                        <img src="{{ post.autor.profile.profile_picture.url }}" class="rounded-circle", width="80" height="80">
-                        <br/><br/> 
+                    {% if post.fecha_publicacion %}
+                        <div class="date postdate">
+                            {{ post.fecha_publicacion }}
+                        </div>
+                    {% else %}
+                        <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                    {% endif %}
+                <br/> 
+                    <img src=" {{ post.imagen_portada.url }}",  width="640" height="425"> 
+                    <p class='postcontent'>{{ post.contenido|safe|linebreaksbr }}</p>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen"></i></a>  
+                    {% endif %}  
+                <br/> 
+
+    <!-- Container Post-->         
+            <div class="card mb-2">
+                <div class="row no-gutters">
+                    <div class="col-md-2">
+                        <img src="{{ post.autor.profile.profile_picture.url }}" class="card-img">
                     </div>
-                    
-                </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.autor.username }}</h5>
+                            <p class="small text muted">
+                                <a href="{{ post.autor.profile.website_url}}">Linkedin</a> 
+                            </p>
+                            <p class="card-text">{{ post.autor.profile.bio }}</p>
+                        </div>
+                    </div>
+                </div>       
             </div>
-        
+
+        </div>
+        <br/>  <br/>  <br/> 
 
 {% endblock content %}

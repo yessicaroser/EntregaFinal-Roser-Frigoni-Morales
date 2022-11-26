@@ -21,6 +21,7 @@ class Post(models.Model):
     fecha_publicacion = models.DateTimeField(blank=True, null=True)
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     avatar = models.ImageField(default='default.jpg', upload_to='avatars/', null=True)
+    slug = models.CharField
     
     def publish(self):
         self.fecha_publicacion = timezone.now()
