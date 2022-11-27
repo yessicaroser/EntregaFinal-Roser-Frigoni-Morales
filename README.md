@@ -38,6 +38,7 @@ Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 <li> Crear posteos </li>
 <li> Editar posteos </li>
 <li> Ver posteos </li>
+<li> Ver borradores </li>
 <li> Modificar perfil </li>
 
 <br>
