@@ -44,7 +44,7 @@ Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 <b>Usuarios con permisos de Admin</b>:
 <li> frigoni </li>
 <li> Yessica  </li>
-
+ 
 
 
 
