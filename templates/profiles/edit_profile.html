@@ -1,25 +1,31 @@
 {% extends "blog/base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 
-        {% if user.is_authenticated %}
-                    <!-- Page Header-->
-            <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
-                <div class="container position-relative px-4 px-lg-5">
-                    <div class="row gx-4 gx-lg-5 justify-content-center">
-                        <div class="col-md-10 col-lg-8 col-xl-7">
-                            <div class="page-heading">
-                                <h1>Editar perfil</h1>
-                            </div>
+    {% if user.is_authenticated %}
+                    
+        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 text-align-left">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1 class="text-md-left">Editar perfil</h1>   
+                            <span class="subheading">dfdsfsfo</span>
                         </div>
                     </div>
                 </div>
-            </header>
-        {% endif %}
-         
-        <h1>Editar Perfil</h1>
-        <br/>
+            </div>
+        </header>
+    {% endif %}
+
+    <main role= "main" class="container">
+        <div class="Row">
+            <div class="col-md-8 blog-main"
+                <h1>Editar Perfil</h1>
+            <br/>
 
         {{ user.profile.bio }}<br/><br/><br/>
         
