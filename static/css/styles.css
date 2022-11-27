@@ -155,7 +155,6 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 abbr[title],
@@ -4450,7 +4449,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  /*border: 1px solid rgba(0, 0, 0, 0.125);*/
 }
 .card > hr {
   margin-right: 0;
@@ -11006,7 +11005,7 @@ hr {
 }
 
 p {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 p a {
   text-decoration: underline;
@@ -11144,7 +11143,7 @@ header.masthead .site-heading {
 }
 header.masthead .page-heading,
 header.masthead .site-heading {
-  text-align: center;
+  text-align: left;
 }
 header.masthead .page-heading h1, header.masthead .page-heading .h1,
 header.masthead .site-heading h1,
@@ -11162,6 +11161,7 @@ header.masthead .site-heading .subheading {
 }
 header.masthead .post-heading h1, header.masthead .post-heading .h1 {
   font-size: 2.25rem;
+  text-align: left;
 }
 header.masthead .post-heading .meta,
 header.masthead .post-heading .subheading {
@@ -11252,3 +11252,12 @@ header.masthead .site-heading .h1 {
 .btn-outline-light {
   padding: 4px 8px;
 }
+
+.btn-outline-info {
+  color: #0085A1;
+  border-color: #0085A1;
+  
+}
+
+
+

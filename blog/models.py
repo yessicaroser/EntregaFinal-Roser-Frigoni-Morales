@@ -16,12 +16,12 @@ class Users(auth.models.User, auth.models.PermissionsMixin):
 class Post(models.Model):
     titulo = models.CharField(max_length=100)
     imagen_portada = models.ImageField(default='default.jpg', upload_to='images/', null=True, blank=True)
-    contenido = RichTextField(blank=True, null=True)
+    contenido = RichTextField()
     fecha_creacion = models.DateTimeField(default=timezone.now)
     fecha_publicacion = models.DateTimeField(blank=True, null=True)
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     avatar = models.ImageField(default='default.jpg', upload_to='avatars/', null=True)
-    slug = models.CharField
+    
     
     def publish(self):
         self.fecha_publicacion = timezone.now()
