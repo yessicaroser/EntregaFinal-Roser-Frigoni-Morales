@@ -13,7 +13,6 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
                             <h1 class="text-md-left">Editar perfil</h1>   
-                            <span class="subheading">dfdsfsfo</span>
                         </div>
                     </div>
                 </div>
@@ -23,24 +22,20 @@
 
     <main role= "main" class="container">
         <div class="Row">
-            <div class="col-md-8 blog-main"
-                <h1>Editar Perfil</h1>
-            <br/>
+            <div class="col-md-8 blog-main">
+                <h1 class="text-md-left">Editar perfil</h1>  
+                 <br/>
+                 {{ user.profile.profile_picture }}<br/>
+                 {{ user.profile.bio }}<br/><br/><br/>
+         
+                 <form method="POST">
+                     {% csrf_token %}
+                     {{ form.as_p }}
+                     <button class="btn btn-secondary">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
 
-        {{ user.profile.bio }}<br/><br/><br/>
-        
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-            <button class="btn btn-secondary">Guardar cambios</button>
-            <img src="{{ post.imagen_portada.url }}"> <br/> <br/>
+    <br/><br/><br/>
     
 {% endblock content %}

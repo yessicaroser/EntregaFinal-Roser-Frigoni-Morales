@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'AppRegistro',
     'ckeditor',
     'crispy_forms',
-    'ckeditor_uploader',
+    
 
 ]
 
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'blog_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -154,8 +154,5 @@ CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': None,
-    },
-}
+
+

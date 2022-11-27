@@ -1,9 +1,37 @@
 {% extends "blog/base.html" %}
-
+{% load static %}
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        <p>Are you sure you want to delete {{ object }}</p>
-        <input type="submit" class="btn btn-danger" value="Confirm">
-    </form>
+
+    <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'assets/img/chica_notebook.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 text-align-left">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1 class="text-md-left">Blog</h1>  
+                            <span class="subheading">Noticias y opinión</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <form method="post">
+                            {% csrf_token %}
+                            <p>¿Estás seguro/a que querés eliminar la publicación?</p>
+                            <p>Publicación a eliminar: "{{ object }}"</p>
+                            <br>
+                            <input type="submit" class="btn btn-danger" value="Confirmar">
+                            <input type="reset" class="btn btn-secondary" value="Cancelar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
 {% endblock %}

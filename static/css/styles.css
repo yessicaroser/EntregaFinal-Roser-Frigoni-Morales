@@ -155,7 +155,6 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 abbr[title],
@@ -4450,7 +4449,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  /*border: 1px solid rgba(0, 0, 0, 0.125);*/
 }
 .card > hr {
   margin-right: 0;
@@ -11006,7 +11005,7 @@ hr {
 }
 
 p {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 p a {
   text-decoration: underline;
@@ -11260,7 +11259,5 @@ header.masthead .site-heading .h1 {
   
 }
 
-#contenedor{
-  margin: 0 auto;
-}
+
 
