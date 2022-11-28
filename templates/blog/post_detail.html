@@ -48,7 +48,7 @@
                     <img class="img-fluid" src=" {{ post.imagen_portada.url }}"> 
                     <p class='postcontent'>{{ post.contenido|safe }}</p>
             </div>
-
+    
             <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-1">
@@ -65,52 +65,48 @@
                             </h5>
                             <p class="autor-bio">{{ post.autor.profile.bio }}</p>
                         </div>
-            
-            
+                        {% if user.is_authenticated %}
+                        <br>
+                                <a class="btn btn-primary rounded" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen">Editar post</i></a> 
+                                <a class="btn btn-primary rounded" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-pen"></i>Eliminar post</a>  
+                        {% endif %}  
                     </div>
+                    
                 </div>
             </div>
 
+        <br>
+        <br>
+                <h2>Comentarios...</h2>
+                {% if not post.comment.all %}
+                    No hay comentarios aún... <a href="#"></a>
+                {% else %}
                 <br>
-                <br>
-                <br>
-                {% if user.is_authenticated %}
-                        <a class="btn btn-primary rounded" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen">Editar post</i></a> 
-                        <a class="btn btn-primary rounded" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-pen"></i>Eliminar post</a>  
-                {% endif %}  
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                
+                        {%for comment in post.comment.all %} 
+                            <strong>
+                            {{ comment.autor }} - 
+                            {{ comment.fecha_creacion }}
+                            </strong>
+                            <br/>
+                            {{ comment.comentario }}
+                            <br><br>
+                        {% endfor %}
+                {% endif %}
+                <br><br><br><br>
+                <a class="btn btn-primary rounded float-left" href="{% url 'comment_form' post.pk %}">Agregar comentario</a>
+                <br><br><br>
                     <div class="clearfix">
                         <a class="btn btn-primary rounded float-left" href="{% url 'post_list' %}">&larr; Volver</a>
                     </div>
                     <br>
                     <br>
                     <br>
-                </div>
-            </div>
+
+                    <hr>
+
+                
         </div>   
- </div>       
-        <!--Container Post         
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-2">
-                        <img src="{{ post.autor.profile.profile_picture.url }}" class="card-img" >
-                    </div>
-                    <div class="col-md-10">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ post.autor.username }}</h5>
-                            <p class="card-text">
-                                <a href="{{ post.autor.profile.website_url}}">Linkedin</a> 
-                            </p>
-                            <p class="card-text">{{ post.autor.profile.bio }}</p>
-                        </div>
-                    </div>
-                </div>       
-            </div>-->
 
-    
-
-
+        
 {% endblock content %}

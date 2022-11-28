@@ -1,11 +1,18 @@
 {% extends "blog/base.html" %}
-<!DOCTYPE html>
+{% load static %}
+
 {% block content %}
-    <h1>New Comment</h1>
-    <form class="post-form" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Post Comment</button>
-    </form>
-    <script>let editor = new MediumEditor('.editable');</script>
-{% endblock %}
+
+    {% if user.is_authenticated %}
+        <h1>Nuevo comentario</h1>
+        <form class="post-form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Publicar comentario</button>
+        </form>
+        <script>let editor = new MediumEditor('.editable');</script>
+        
+    {% endif %}
+
+    
+{% endblock content%}

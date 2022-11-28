@@ -38,7 +38,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comentario', on_delete=models.CASCADE)
+    post = models.ForeignKey('blog.Post', related_name='comment', on_delete=models.CASCADE)
     autor = models.CharField(max_length=200)
     comentario = models.TextField()
     fecha_creacion = models.DateTimeField(default=timezone.now)
@@ -52,4 +52,4 @@ class Comment(models.Model):
         return reverse("post_list")
 
     def __str__(self):
-        return self.comentario
+        return self.comment
