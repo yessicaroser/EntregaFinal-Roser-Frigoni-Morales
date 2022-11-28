@@ -10,7 +10,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
                             <h1 class="text-md-left">Artículos</h1>  
-                            <span class="subheading">dfdsfsfo</span>
+                            <!--<span class="subheading">dfdsfsfo</span>-->
                         </div>
                     </div>
                 </div>
@@ -23,33 +23,77 @@
     <main role= "main" class="container">
         <div class="Row">
             <div class="col-md-8 blog-main">
+                <!--<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                      <li class="breadcrumb-item"><a href="{% url 'post_list' %}">Blog</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{ post.titulo }}</li>
+                    </ol>
+                </nav>-->
                 <h1 class='posttitle loader'>{{ post.titulo }}</h1>
-                <p class="post-meta">
-                    <small>Por:
-                        {{ post.autor.username }}
-                        {{ post.autor.fecha }}
-                    </small></p>
-                    {% if post.fecha_publicacion %}
+                <small> Por:
+                    {{ post.autor.username }}
+                    {{ post.fecha_publicacion }}
+
+                </small>
+                    
+
+                {% if post.fecha_publicacion %}
                         <div class="date postdate">
-                            {{ post.fecha_publicacion }}
                         </div>
-                    {% else %}
+                {% else %}
                         <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publicar</a>
-                    {% endif %}
-                <br/> 
+                {% endif %}
+                    <br/> 
                     <img class="img-fluid" src=" {{ post.imagen_portada.url }}"> 
                     <p class='postcontent'>{{ post.contenido|safe }}</p>
-                    {% if user.is_authenticated %}
-                        <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen">Editar post</i></a>  
-                        <a class="btn btn-primary" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-pen"></i>Eliminar post</a>  
-                    {% endif %}  
-                <br><br>
             </div>
-        </div>    
 
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-1">
+                        {% if post.autor.profile.profile_picture.url %}
+                            <img src="{{ post.autor.profile.profile_picture.url }}" width="100">
+                        {% else %}
+                            <img src="url({% static 'assets/img/avatar_default_2.1.jpg' %})" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ post.autor.username }}
+                            </h5>
+                            <p class="autor-bio">{{ post.autor.profile.bio }}</p>
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
 
+                <br>
+                <br>
+                <br>
+                {% if user.is_authenticated %}
+                        <a class="btn btn-primary rounded" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen">Editar post</i></a> 
+                        <a class="btn btn-primary rounded" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-pen"></i>Eliminar post</a>  
+                {% endif %}  
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="clearfix">
+                        <a class="btn btn-primary rounded float-left" href="{% url 'post_list' %}">&larr; Volver</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>   
+ </div>       
         <!--Container Post         
-            <div class="card mb-2">
+            <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-2">
                         <img src="{{ post.autor.profile.profile_picture.url }}" class="card-img" >
