@@ -1,41 +1,66 @@
-{% extends "blog/base.html" %}
+{% extends "profiles/base_admin.html" %}
 
 {% load static %}
 
 {% block content %}
 
+<h1 class="mt-4">Editar Perfil</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item   active">Dashboard</li>
+</ol>
 
-    {% if user.is_authenticated %}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulario
+    </div>
+    <div class="card-body">
+        <!-- Inicio Formulario -->    
+        {% if form.errors %}
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body"><i class="fa fa-warning"></i> Nombre de Usuario y/o Contraseña no validos.</div>
+        </div>
+        {% endif %}                                  
+        <form method="POST">
+            {% csrf_token %}
+            <!--  -->  
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input type="text" name="username" value=" {{ user.username }}" maxlength="150" autofocus required id="id_username" placeholder="Ingrese Usuario" class="form-control" required />
                     
-        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 text-align-left">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="page-heading">
-                            <h1 class="text-md-left">Editar perfil</h1>   
-                        </div>
-                    </div>
+                    <label for="inputFirstName">Usuario</label>
                 </div>
             </div>
-        </header>
-    {% endif %}
-
-    <main role= "main" class="container">
-        <div class="Row">
-            <div class="col-md-8 blog-main">
-                <h1 class="text-md-left">Editar perfil</h1>  
-                 <br/>
-                 {{ user.profile.profile_picture }}<br/>
-                 {{ user.profile.bio }}<br/><br/><br/>
-         
-                 <form method="POST">
-                     {% csrf_token %}
-                     {{ form.as_p }}
-                     <button class="btn btn-secondary">Guardar cambios</button>
-                </form>
+            <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="email" name="email" value=" {{ user.email }}" placeholder="Ingrese email" class="form-control" required id="id_email" placeholder="name@example.com" />
+                  <label for="inputEmail">Email</label>
+                </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input type="text" name="first_name" value=" {{ user.first_name }}" placeholder="Ingrese Nombre" class="form-control" maxlength="100" required id="id_first_name" />
+                    <label for="inputFirstName">Nombre</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" name="last_name" value=" {{ user.last_name }}" placeholder="Ingrese Apellido" class="form-control" maxlength="100" required id="id_last_name" />
+                    <label for="inputLastName">Apellido</label>
+                </div>
             </div>
         </div>
+        <button class="btn btn-secondary">Guardar cambios</button>
 
-    <br/><br/><br/>
-    
+                         {{ user.profile.profile_picture }}<br/>
+                 {{ user.profile.bio }}<br/><br/><br/>
+                 <a href="../password/">Cambiar Contraseña</a>
+
+    </div>
+</div>
+
+  
 {% endblock content %}

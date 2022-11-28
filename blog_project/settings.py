@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
-LOGIN_REDIRECT_URL = '/' 
+LOGIN_REDIRECT_URL = 'panel' 
 LOGOUT_REDIRECT_URL = 'about' #cambiar a home o index
 
 # Default primary key field type
