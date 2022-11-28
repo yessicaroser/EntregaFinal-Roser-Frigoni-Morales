@@ -13,9 +13,10 @@ class UserRegisterView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
+
 class UserEditView(UpdateView):
     form_class = EditProfileForm
-    success_url = reverse_lazy('about') #cambiar a home
+    success_url = reverse_lazy('panel') #cambiar a home
     template_name = 'profiles/edit_profile.html'
 
     def get_object(self):
@@ -29,6 +30,10 @@ class PasswordsChangeView(PasswordChangeView):
 def password_success(request):
     return render(request, 'profiles/password_success.html', {})
 
+@login_required
+def panel(request):
+    return render(request, 'profiles/base_admin.html', {})
+
 
 class ProfileView(TemplateView):
-    template_name = 'blog/profile.html'
+    template_name = 'profiles/index.html'
