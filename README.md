@@ -1,5 +1,5 @@
-# EntregaIntermedia-Roser-Frigoni-Morales
-Entrega intermedia para proyecto final curso Python/ Django de Coderhouse
+# EntregaFinal-Roser-Frigoni-Morales
+Entrega final para proyecto final del curso Python (orientado al desarrollor web) de Coderhouse
 
 Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 
