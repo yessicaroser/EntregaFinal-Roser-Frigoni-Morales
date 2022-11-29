@@ -41,9 +41,11 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <li> Logueo de usuarios </li>
 <li> Crear posteos </li>
 <li> Editar posteos </li>
+<li> Eliminar posteos </li>
 <li> Ver posteos </li>
 <li> Ver borradores </li>
 <li> Modificar perfil </li>
+<li> Agregar comentarios a posteos </li>
 
 <br>
 <b>Usuarios con permisos de Admin</b>:
@@ -55,8 +57,8 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 1. Templates / Home:
 
 ![home](https://user-images.githubusercontent.com/110737647/204418672-dadaeb5f-1d15-49f7-bf65-3650b5d6d589.jpg)
+<li> El header ofrece informa
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
 <br><br><br><br>
 <br>
 <br>
@@ -109,8 +111,138 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sod
 <br>
 <br>
 7. Templates / Comentarios (Comment Form):
-![comentario_post](https://user-images.githubusercontent.com/110737647/204421160-01a47dcb-e1e8-422f-be9a-04d70b1e347f.jpg)
+![form_comentario](https://user-images.githubusercontent.com/110737647/204421839-0e7673cf-569d-4ea2-8e17-7ec7e5cca22c.jpg)
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
 <br><br><br><br>
 <br>
 <br>
+<h2>Modelos</h2>
+1. Modelo de Publicacion/ (blog) - App
+<br>
+
+ class Post(models.Model):
+    titulo = models.CharField(max_length=100)
+    imagen_portada = models.ImageField(default='default.jpg', upload_to='images/', null=True, blank=True)
+    contenido = RichTextField()
+    fecha_creacion = models.DateTimeField(default=timezone.now)
+    fecha_publicacion = models.DateTimeField(blank=True, null=True)
+    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    avatar = models.ImageField(default='default.jpg', upload_to='avatars/', null=True)
+   
+    def publish(self):
+        self.fecha_publicacion = timezone.now()
+        self.save()
+
+    def approve_comments(self):
+        return self.comentario.filter(comentario_aprobado=True)
+
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.titulo
+        
+class Comment(models.Model):
+    post = models.ForeignKey('blog.Post', related_name='comment', on_delete=models.CASCADE)
+    autor = models.CharField(max_length=200)
+    comentario = models.TextField()
+    fecha_creacion = models.DateTimeField(default=timezone.now)
+    comentario_aprobado = models.BooleanField(default=False)
+
+    def approve(self):
+        self.comentario_aprobado = True
+        self.save()
+
+    def get_absolute_url(self):
+        return reverse("post_list")
+
+    def __str__(self):
+        return self.comment
+
+
+<br>
+<br>
+2. Modelo para Registro/logueo/editar perfil (AppRegistro) - App
+<br><br>
+class Users(auth.models.User, auth.models.PermissionsMixin):
+    def __str__(self):
+        return "@{}".format(self.username)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_picture = models.ImageField(default='default.jpg', upload_to='images/profile')
+    website_url = models.CharField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
+<br>
+<br>
+<h2>Formularios</h2>
+1. Formulario de blog (app)
+<br>
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('autor', 'titulo', 'contenido', 'imagen_portada')
+
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'contenido': forms.TextInput(attrs={'class': 'form-control'}),
+            'Autor' : forms.TextInput(attrs={'class': 'form-control', 'value':'', 'id':'elder','type': 'hidden'}),
+            
+        }
+
+
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('autor', 'comentario',)
+
+        widgets = {
+            'autor': forms.TextInput(attrs={'class': 'textinputclass'}),
+            'comentario': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'}),
+        }
+<br>
+Formulario de AppRegistro (app)
+<br>
+class UserCreateForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.EmailInput())
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput())
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput())
+
+    class Meta:
+        fields = ("username", "first_name", "last_name", "email", "password1", "password2")
+        model = get_user_model()
+
+class EditProfileForm(UserChangeForm):
+    email = forms.EmailField(widget=forms.EmailInput())
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput())
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput())
+    username = forms.CharField(max_length=100, widget=forms.TextInput())
+    #last_login = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter you last name...'  , 'class': 'form-control'}))
+    #is_superuser = forms.CharField(max_length=100, widget=forms.checkboxInput(attrs={'placeholder': 'Es superusuario...'  , 'class': 'form-check'}))
+    #is_staff = forms.CharField(max_length=100, widget=forms.checkboxInput(attrs={'placeholder': 'Es staff...'  , 'class': 'form-check'}))
+    #is_active = forms.CharField(max_length=100, widget=forms.checkboxInput(attrs={'placeholder': 'Es activo...'  , 'class': 'form-check'}))
+    #date_joined = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Fecha de registro...'  , 'class': 'form-control'}))
+
+    class Meta:
+        fields = ("username", "first_name", "last_name", "email", "password" )
+        model = get_user_model()
+
+class PasswordChangingForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
+    new_password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
+    new_password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
+
+    class Meta:
+        fields = ("old_password", "new_password1", "new_password2")
+        model = get_user_model()
+<br>
+
+
+
+
+
