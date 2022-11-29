@@ -52,6 +52,9 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <li> frigoni </li>
 <li> Yessica  </li>
 <br>
+<br>
+<b>Instalación</b>:
+<br><br>
 <h2>Templates</h2>
 <br>
 1. Templates / Home:
@@ -121,6 +124,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sod
 <br>
 
  class Post(models.Model):
+ 
     titulo = models.CharField(max_length=100)
     imagen_portada = models.ImageField(default='default.jpg', upload_to='images/', null=True, blank=True)
     contenido = RichTextField()
@@ -143,6 +147,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sod
         return self.titulo
         
 class Comment(models.Model):
+ 
     post = models.ForeignKey('blog.Post', related_name='comment', on_delete=models.CASCADE)
     autor = models.CharField(max_length=200)
     comentario = models.TextField()
@@ -169,6 +174,7 @@ class Users(auth.models.User, auth.models.PermissionsMixin):
         return "@{}".format(self.username)
 
 class Profile(models.Model):
+ 
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField()
     profile_picture = models.ImageField(default='default.jpg', upload_to='images/profile')
@@ -179,10 +185,12 @@ class Profile(models.Model):
 <br>
 <br>
 <h2>Formularios</h2>
-1. Formulario de blog (app)
-<br>
+<h3>Formulario de blog (app)</h3>
+ 
 class PostForm(forms.ModelForm):
+ 
     class Meta:
+ 
         model = Post
         fields = ('autor', 'titulo', 'contenido', 'imagen_portada')
 
@@ -197,7 +205,9 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+ 
     class Meta:
+ 
         model = Comment
         fields = ('autor', 'comentario',)
 
@@ -205,19 +215,24 @@ class CommentForm(forms.ModelForm):
             'autor': forms.TextInput(attrs={'class': 'textinputclass'}),
             'comentario': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'}),
         }
+ 
 <br>
-Formulario de AppRegistro (app)
-<br>
+<h3>Formulario de AppRegistro (app)</h3>
+ 
 class UserCreateForm(UserCreationForm):
+ 
     email = forms.EmailField(widget=forms.EmailInput())
     first_name = forms.CharField(max_length=100, widget=forms.TextInput())
     last_name = forms.CharField(max_length=100, widget=forms.TextInput())
 
     class Meta:
+ 
         fields = ("username", "first_name", "last_name", "email", "password1", "password2")
         model = get_user_model()
 
+ 
 class EditProfileForm(UserChangeForm):
+ 
     email = forms.EmailField(widget=forms.EmailInput())
     first_name = forms.CharField(max_length=100, widget=forms.TextInput())
     last_name = forms.CharField(max_length=100, widget=forms.TextInput())
@@ -229,10 +244,13 @@ class EditProfileForm(UserChangeForm):
     #date_joined = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Fecha de registro...'  , 'class': 'form-control'}))
 
     class Meta:
+ 
         fields = ("username", "first_name", "last_name", "email", "password" )
         model = get_user_model()
 
+ 
 class PasswordChangingForm(PasswordChangeForm):
+ 
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
     new_password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
     new_password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
@@ -242,7 +260,24 @@ class PasswordChangingForm(PasswordChangeForm):
         model = get_user_model()
 <br>
 
+ 
+<h3>Pasos de instalación:</h3>
 
+Antes que nada recomendamos trabajar en un ambiente controlado como virtualenv o pipenv para evitar conflictos de versiones.
+Ejecute el comando: 
 
+virtualenv venv
 
+Esto creará una carpeta con el nombre "venv". Ingrese a la ruta venv/Scripts y ejecute el activate.
+Tambien puede correr el siguiente comando:
+
+.\Scripts\activate
+
+Una vez llebado a cabo, debera ver el nombre de su enterno virtual como promt entre parentesis.
+
+(venv)
+
+Ejecute el siguiente comando 
+
+pip install -r requirements.txt
 
