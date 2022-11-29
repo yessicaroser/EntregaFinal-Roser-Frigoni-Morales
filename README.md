@@ -76,14 +76,14 @@ Se menciona a cada participante del proyecto y una breve descripción que los ca
 <br>
 3. Templates / Blog:
 ![blog](https://user-images.githubusercontent.com/110737647/204420064-cd0b21e6-b3f0-45f8-8179-cb56d2497291.jpg)
-Lo
+En el template Blog se visualiza los artículos publicados, destacando su titulo y la fecha de publicación como información inicial. El usuarip puede acceder a su contenido clikeando sobre el titulo elegido.
 <br><br><br><br>
 <br>
 <br>
 4. Templates / Registro:
 ![registro](https://user-images.githubusercontent.com/110737647/204420234-89ad2f1d-d8fd-4161-915e-09f9d2f9d7f7.jpg)
 El template de registro ofrece una formulario con una vista limpia, sin distracciones visuales.<br>
-Como mejora se podría considerar agregar el logo que identifica el blog o el nombre del mismo y utilizar la misma paleta cromática que poseen los botones y otros elementos de interacción para generar una identidad visual homogénea. <br>
+Como mejora se podría considerar agregar el logo que identifica al blog o el nombre del mismo y utilizar la misma paleta cromática que poseen los botones y otros elementos de interacción para generar una identidad visual homogénea. <br>
 <br><br><br><br>
 <br>
 <br>
@@ -97,35 +97,34 @@ Ofrece la opción de registro para aquellos que aún no tienen una cuenta e ingr
 6. Templates / Editar Perfil:
 ![panel_profile](https://user-images.githubusercontent.com/110737647/204420517-5a1de2ec-3e40-4b25-8eb1-d8af3ff5d362.jpg)
 Una vez que el usuario se loguea puede acceder desde la barra de navegación a la opción de "Editar perfil" que lo redirigirá al panel de control del blog. Podrá:
-<br><li>Editar perfil: Podrá modificar sus datos personales, cargar o modificar la imagen de perfil y agregar un breve texto a su biografía</li><br>
+<br><li>Editar perfil: Modificar sus datos personales, cargar o modificar la imagen de perfil y agregar/editar un breve texto a su biografía</li><br>
 Desde ese panel también podrá crear nuevos artículos, ver artículos ya publicados y sus borradores. Actualmente estas opciones redirigen a formularios y templates del blog. Como mejora se podría crear vistas dentro del dashboard para generar estas acciones dentro de este entorno visual.<br>
-
-<br><li>Crear artículos nuevos</li>
-<br><li>Crear artículos nuevos</li>
 <br><br><br><br>
 <br>
 <br>
 6. Templates / Artículo nuevo (Post Form):
 ![articulo_nuevo](https://user-images.githubusercontent.com/110737647/204420897-61995d58-4633-483b-bea0-f0a6c5e119d6.png)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+El formulario de edición/creación de nuevos artículos cuenta con un editor visual de texto enriquecido que ofrece múltiples funcionalidades para crear bloques personalizados e incorporar imágenes.<br>
+Como mejora se debería identificar al usuario logueado y la publicación creada se vincule automáticamente a su perfil de usuario. 
 <br><br><br><br>
 <br>
 <br>
 6. Templates / Artículos (Post Detail):
 ![articulos](https://user-images.githubusercontent.com/110737647/204421060-95713e39-245b-4f33-a191-5bfef04929f7.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+La estructura implementada se corresponde a los blogs tradicionales: titulo, imagen de portada, autor, fecha de creación, y cuerpo con texto y/o imagenes.<br>
+Al pie del artículo se puede visualizar el avatar de perfil del autor con su username y el texto de biografía ingresado desde el panel de edición de perfil.
 <br><br><br><br>
 <br>
 <br>
 6. Templates / Borradores (Post Fraft List):
 ![borradores](https://user-images.githubusercontent.com/110737647/204421668-61eba303-38e0-4420-8cd4-54a25c2d30d9.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
-<br><br><br><br>
+En este espacio se visualizan los artículos que el usuario no publicó. Aparecerán en forma de lista ordenada por fecha de creación. 
+<br><br><br><br> ordenada
 <br>
 <br>
 7. Templates / Comentarios (Comment Form):
 ![form_comentario](https://user-images.githubusercontent.com/110737647/204421839-0e7673cf-569d-4ea2-8e17-7ec7e5cca22c.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+Debajo de la descripción del autor de la publicación figuran los comentarios en orden por fecha de creación. Para agregar un nuevo comentario se requiere que el usuario se encuentre logueado previamente.
 <br><br><br><br>
 <br>
 <br>
