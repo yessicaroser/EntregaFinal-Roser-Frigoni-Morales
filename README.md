@@ -20,7 +20,7 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <li> Editar Perfil </li>
 <li> Post Form </li>
 <li> Post Detail </li>
-<li> Post Fraft List </li>
+<li> Post Draft List </li>
 <li> Comment form </li>
 
 
@@ -63,76 +63,66 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 ![home](https://user-images.githubusercontent.com/110737647/204418672-dadaeb5f-1d15-49f7-bf65-3650b5d6d589.jpg)
 El Navbar cuenta con links que redirigen a la navegación por el blog(home/about/blog), el acceso de nuevos usuarios por medio de un registro y el logueo de usuarios ya establecidos.<br>
 El header ofrece información sobre la temática del blog.
-
 <br><br><br><br>
-<br>
-<br>
+
 2. Templates / About:
 ![about](https://user-images.githubusercontent.com/110737647/204419203-c33ce090-7cec-4832-8ca5-82739a890693.jpg)
 El header indica el nombre de la página y finalidad.<br>
 Se menciona a cada participante del proyecto y una breve descripción que los caracteriza.
 <br><br><br><br>
-<br>
-<br>
+
 3. Templates / Blog:
 ![blog](https://user-images.githubusercontent.com/110737647/204420064-cd0b21e6-b3f0-45f8-8179-cb56d2497291.jpg)
 En el template Blog se visualiza los artículos publicados, destacando su titulo y la fecha de publicación como información inicial. El usuarip puede acceder a su contenido clikeando sobre el titulo elegido.
 <br><br><br><br>
-<br>
-<br>
+
 4. Templates / Registro:
 ![registro](https://user-images.githubusercontent.com/110737647/204420234-89ad2f1d-d8fd-4161-915e-09f9d2f9d7f7.jpg)
 El template de registro ofrece una formulario con una vista limpia, sin distracciones visuales.<br>
 Como mejora se podría considerar agregar el logo que identifica al blog o el nombre del mismo y utilizar la misma paleta cromática que poseen los botones y otros elementos de interacción para generar una identidad visual homogénea. <br>
 <br><br><br><br>
-<br>
-<br>
+
 5. Templates / Login:
 ![login](https://user-images.githubusercontent.com/110737647/204420338-4797ab2b-99a5-4d71-94f5-4b236105bb32.jpg)
 Presenta las misma estructura que el registro. Para el acceso se solicita el username y la contraseña generada.<br>
 Ofrece la opción de registro para aquellos que aún no tienen una cuenta e ingresaron a esta opción por equivocación.
 <br><br><br><br>
-<br>
-<br>
+
 6. Templates / Editar Perfil:
 ![panel_profile](https://user-images.githubusercontent.com/110737647/204420517-5a1de2ec-3e40-4b25-8eb1-d8af3ff5d362.jpg)
 Una vez que el usuario se loguea puede acceder desde la barra de navegación a la opción de "Editar perfil" que lo redirigirá al panel de control del blog. Podrá:
-<br><li>Editar perfil: Modificar sus datos personales, cargar o modificar la imagen de perfil y agregar/editar un breve texto a su biografía</li><br>
+<br>
+Editar perfil: Modificar sus datos personales, cargar o modificar la imagen de perfil y agregar/editar un breve texto a su biografía.<br>
 Desde ese panel también podrá crear nuevos artículos, ver artículos ya publicados y sus borradores. Actualmente estas opciones redirigen a formularios y templates del blog. Como mejora se podría crear vistas dentro del dashboard para generar estas acciones dentro de este entorno visual.<br>
 <br><br><br><br>
-<br>
-<br>
-6. Templates / Artículo nuevo (Post Form):
+
+7. Templates / Artículo nuevo (Post Form):
 ![articulo_nuevo](https://user-images.githubusercontent.com/110737647/204420897-61995d58-4633-483b-bea0-f0a6c5e119d6.png)
 El formulario de edición/creación de nuevos artículos cuenta con un editor visual de texto enriquecido que ofrece múltiples funcionalidades para crear bloques personalizados e incorporar imágenes.<br>
 Como mejora se debería identificar al usuario logueado y la publicación creada se vincule automáticamente a su perfil de usuario. 
 <br><br><br><br>
-<br>
-<br>
-6. Templates / Artículos (Post Detail):
+
+8. Templates / Artículos (Post Detail):
 ![articulos](https://user-images.githubusercontent.com/110737647/204421060-95713e39-245b-4f33-a191-5bfef04929f7.jpg)
 La estructura implementada se corresponde a los blogs tradicionales: titulo, imagen de portada, autor, fecha de creación, y cuerpo con texto y/o imagenes.<br>
 Al pie del artículo se puede visualizar el avatar de perfil del autor con su username y el texto de biografía ingresado desde el panel de edición de perfil.
 <br><br><br><br>
-<br>
-<br>
-6. Templates / Borradores (Post Fraft List):
+
+9. Templates / Borradores (Post Fraft List):
 ![borradores](https://user-images.githubusercontent.com/110737647/204421668-61eba303-38e0-4420-8cd4-54a25c2d30d9.jpg)
 En este espacio se visualizan los artículos que el usuario no publicó. Aparecerán en forma de lista ordenada por fecha de creación. 
-<br><br><br><br> ordenada
-<br>
-<br>
-7. Templates / Comentarios (Comment Form):
+<br><br><br><br> 
+
+10. Templates / Comentarios (Comment Form):
 ![form_comentario](https://user-images.githubusercontent.com/110737647/204421839-0e7673cf-569d-4ea2-8e17-7ec7e5cca22c.jpg)
 Debajo de la descripción del autor de la publicación figuran los comentarios en orden por fecha de creación. Para agregar un nuevo comentario se requiere que el usuario se encuentre logueado previamente.
 <br><br><br><br>
-<br>
-<br>
+
 <h2>Modelos</h2>
 1. Modelo de Publicacion/ (blog) - App
 <br>
 
- class Post(models.Model):
+class Post(models.Model):
  
     titulo = models.CharField(max_length=100)
     imagen_portada = models.ImageField(default='default.jpg', upload_to='images/', null=True, blank=True)
@@ -289,4 +279,5 @@ Una vez llevado a cabo, debera ver el nombre de su enterno virtual como promt en
 Ejecute el siguiente comando 
 
 pip install -r requirements.txt
+
 
