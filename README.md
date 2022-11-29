@@ -54,44 +54,54 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <br>
 <br>
 <b>Instalación</b>:
+<li>Pasos para utilizar el archivo</li>
 <br><br>
 <h2>Templates</h2>
 <br>
 1. Templates / Home:
 
 ![home](https://user-images.githubusercontent.com/110737647/204418672-dadaeb5f-1d15-49f7-bf65-3650b5d6d589.jpg)
-<li> El header ofrece informa
+El Navbar cuenta con links que redirigen a la navegación por el blog(home/about/blog), el acceso de nuevos usuarios por medio de un registro y el logueo de usuarios ya establecidos.<br>
+El header ofrece información sobre la temática del blog.
 
 <br><br><br><br>
 <br>
 <br>
 2. Templates / About:
 ![about](https://user-images.githubusercontent.com/110737647/204419203-c33ce090-7cec-4832-8ca5-82739a890693.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+El header indica el nombre de la página y finalidad.<br>
+Se menciona a cada participante del proyecto y una breve descripción que los caracteriza.
 <br><br><br><br>
 <br>
 <br>
 3. Templates / Blog:
 ![blog](https://user-images.githubusercontent.com/110737647/204420064-cd0b21e6-b3f0-45f8-8179-cb56d2497291.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+Lo
 <br><br><br><br>
 <br>
 <br>
 4. Templates / Registro:
 ![registro](https://user-images.githubusercontent.com/110737647/204420234-89ad2f1d-d8fd-4161-915e-09f9d2f9d7f7.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+El template de registro ofrece una formulario con una vista limpia, sin distracciones visuales.<br>
+Como mejora se podría considerar agregar el logo que identifica el blog o el nombre del mismo y utilizar la misma paleta cromática que poseen los botones y otros elementos de interacción para generar una identidad visual homogénea. <br>
 <br><br><br><br>
 <br>
 <br>
 5. Templates / Login:
 ![login](https://user-images.githubusercontent.com/110737647/204420338-4797ab2b-99a5-4d71-94f5-4b236105bb32.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+Presenta las misma estructura que el registro. Para el acceso se solicita el username y la contraseña generada.<br>
+Ofrece la opción de registro para aquellos que aún no tienen una cuenta e ingresaron a esta opción por equivocación.
 <br><br><br><br>
 <br>
 <br>
 6. Templates / Editar Perfil:
 ![panel_profile](https://user-images.githubusercontent.com/110737647/204420517-5a1de2ec-3e40-4b25-8eb1-d8af3ff5d362.jpg)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+Una vez que el usuario se loguea puede acceder desde la barra de navegación a la opción de "Editar perfil" que lo redirigirá al panel de control del blog. Podrá:
+<br><li>Editar perfil: Podrá modificar sus datos personales, cargar o modificar la imagen de perfil y agregar un breve texto a su biografía</li><br>
+Desde ese panel también podrá crear nuevos artículos, ver artículos ya publicados y sus borradores. Actualmente estas opciones redirigen a formularios y templates del blog. Como mejora se podría crear vistas dentro del dashboard para generar estas acciones dentro de este entorno visual.<br>
+
+<br><li>Crear artículos nuevos</li>
+<br><li>Crear artículos nuevos</li>
 <br><br><br><br>
 <br>
 <br>
@@ -273,7 +283,7 @@ Tambien puede correr el siguiente comando:
 
 .\Scripts\activate
 
-Una vez llebado a cabo, debera ver el nombre de su enterno virtual como promt entre parentesis.
+Una vez llevado a cabo, debera ver el nombre de su enterno virtual como promt entre parentesis.
 
 (venv)
 
