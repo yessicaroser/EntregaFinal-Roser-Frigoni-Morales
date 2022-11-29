@@ -8,11 +8,11 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <li> Video: </li>
 https://www.youtube.com/watch?v=A7HZB_2WAeY
 <br/>
-
+<br/>
 <li> DEMO: </li>
 https://web-production-ae88.up.railway.app/
 <br/>
-
+<br/>
 <h3>Indice: </h3>
 <b><strong>Templates</strong></b>:
 
