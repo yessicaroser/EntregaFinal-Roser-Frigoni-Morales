@@ -6,7 +6,7 @@ Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
 <h1>Primera entrega del Proyecto Final</h1>
 
 <li> Video: </li>
-
+https://www.youtube.com/watch?v=A7HZB_2WAeY
 <br/>
 
 <h3>Indice: </h3>
