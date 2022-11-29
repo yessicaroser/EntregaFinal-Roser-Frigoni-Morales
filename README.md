@@ -1,11 +1,15 @@
-# EntregaFinal-Roser-Frigoni-Morales
 Entrega final para proyecto final del curso Python (orientado al desarrollor web) de Coderhouse
 
-Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
+Participantes: Yessica Roser/ Gino Frigoni/ Constanza Morales/
+<br/>
 
+<h1>Primera entrega del Proyecto Final</h1>
 
-<h1>Indice</h1>
+<li> Video: </li>
 
+<br/>
+
+<h3>Indice: </h3>
 <b><strong>Templates</strong></b>:
 
 <li> Home </li>
@@ -19,6 +23,8 @@ Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 <li> Post Detail </li>
 <li> Post Draft </li>
 <li> Post Confirm Delete </li>
+<li> Comment form </li>
+
 
 <br>
 
@@ -45,7 +51,21 @@ Participantes: Gino Frigoni/ Constanza Morales/ Yessica Roser
 <b>Usuarios con permisos de Admin</b>:
 <li> frigoni </li>
 <li> Yessica  </li>
- 
+<br>
+<h2>Templates</h2>
+<br>
+1. Templates / Home:
 
+![home](https://user-images.githubusercontent.com/110737647/204418672-dadaeb5f-1d15-49f7-bf65-3650b5d6d589.jpg)
 
-
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+<br><br><br><br>
+<br>
+<br>
+2. Templates / About:
+![about](https://user-images.githubusercontent.com/110737647/204419203-c33ce090-7cec-4832-8ca5-82739a890693.jpg)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum euismod sodales. Donec feugiat, augue non semper dictum, risus purus viverra ligula, nec tincidunt mauris erat sed dui. In eu lobortis risus. Fusce aliquet, sapien ac suscipit mollis, neque arcu gravida libero, vel tincidunt justo sapien quis purus. Mauris finibus et turpis in congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl lorem, mollis et ligula non, feugiat fermentum felis. Aliquam eget felis eu est faucibus vehicula. Donec nec nisl gravida, fringilla ipsum vitae, volutpat augue. Cras at tempor tellus, sit amet ultricies nunc. Nullam semper risus sit amet dui bibendum, sit amet luctus orci mattis.
+<br><br><br><br>
+<br>
+<br>
+3. Templates / Blog:
