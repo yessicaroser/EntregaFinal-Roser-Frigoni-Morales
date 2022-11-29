@@ -264,20 +264,17 @@ class PasswordChangingForm(PasswordChangeForm):
 
 Antes que nada recomendamos trabajar en un ambiente controlado como virtualenv o pipenv para evitar conflictos de versiones.
 Ejecute el comando: 
-
-virtualenv venv
+<strong>virtualenv venv</strong>
 
 Esto creará una carpeta con el nombre "venv". Ingrese a la ruta venv/Scripts y ejecute el activate.
 Tambien puede correr el siguiente comando:
-
-.\Scripts\activate
+<strong>.\Scripts\activate</strong>
 
 Una vez llevado a cabo, debera ver el nombre de su enterno virtual como promt entre parentesis.
 
 (venv)
 
 Ejecute el siguiente comando 
-
-pip install -r requirements.txt
+<strong>pip install -r requirements.txt</strong>
 
 
